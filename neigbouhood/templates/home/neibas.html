@@ -1,0 +1,42 @@
+{%extends 'base.html'%} {%block content%}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Location</th>
+            <th scope="col">Population</th>
+            <th scope="col">Admin</th>
+            <th scope="col">Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%for neib in neibas %}
+        <tr>
+
+            <th scope="row">{{neib.id}}</th>
+            <td>{{neib.name}}</td>
+            <td>{{neib.NeiLocation}}</td>
+            <td>{{neib.occupantsCount}}</td>
+            <td>{{neib.admin}}</td>
+            <td><button> <a href="{%url 'updateoCC' neib.id %}">updateCount</a></button>
+                <button> <a href="{%url 'updateHood' neib.id %}">updateName</a></button></td>
+
+            <td><button> <a href="{%url 'delHood' neib.name%}">DeleteHood</a></button></td>
+
+        </tr>
+        {%endfor%}
+
+        <tr>
+            <th colspan='5' class="text-center">
+                <a href="{%url 'createHood'%}">AddHood</a></th>
+        </tr>
+        <!-- <tr>
+            <th colspan='5' class=" text-center ">
+                {%if average%} Average: {{average}}{%else%}Average:0{%endif%}
+            </th>
+        </tr> -->
+    </tbody>
+</table>
+{%endblock%}
