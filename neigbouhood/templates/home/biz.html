@@ -1,0 +1,33 @@
+{%extends 'base.html'%} {%block content%} {%for biz in bizness%}
+<div class="container" id="{{biz.category}}">
+    <div class="title ">
+
+        <h1>{{biz.Bname}}</h1>
+        <h3></h3>
+
+    </div>
+
+
+    <img src=" {{biz.Bimage.url}}" width="100%" height="100% " alt="img ">
+
+
+    <div class="owner">
+        <h6>Owned by:{{biz.owner}}</h6>
+    </div>
+    <div class="contacts" id={{biz.id}}>
+        <button id="{{biz.id}}" onclick=copy(id)>Copy</button>
+        <h6 style="font-weight: bold;" id="btn{{biz.id}}">Contact:{{biz.Bmail}}</h6>
+
+    </div>
+</div>{%empty%}
+<h1>No business currently</h1>
+{%endfor%}
+<script>
+    function copy(m) {
+        d = 'btn' + m
+        alert(d)
+        var copyText = document.getElementById(d).innerHTML
+        navigator.clipboard.writeText(copyText);
+        alert(copyText.slice(8))
+    }
+</script>{%endblock%}
