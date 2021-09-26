@@ -1,0 +1,12 @@
+{%extends 'base.html'%} {%block content%}{%for news in news%}
+<div class="container" id={{news.id}}>
+    <h1>{{news.newsTitle}}</h1>
+    <div class="imgn">
+        <img src="{{news.newsImage.url}}" width="100%" alt="">
+    </div>
+    <div class="description">
+        <p style="font-weight:bolder">{{news.newsDescription}}</p>
+    </div>
+</div>{%empty%}
+<h1>SOORY NO NEWS</h1>
+{%endfor%}{%endblock%}
