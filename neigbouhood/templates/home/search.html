@@ -1,0 +1,23 @@
+{%extends 'base.html'%} {% block content %}
+<div class="Searchcontainer text-center">
+
+
+    {% if search_project%}
+    <h2>Found {{ search_project|length }} of searhed_project {{message}}</h2>
+    {% else %}
+    <h2> Found 0 busineses named {{message}} in {{request.user.profile.neID}}</h2>
+    {% endif %} "> {% if search_project %} {% for search_project in search_project %}
+
+    <h1>Name:{{search_project.Bname}}: Category: {{search_project.category}}</h1>
+    <div class="container"><img src="{{search_project.Bimage.url}}" width="100%" alt="">
+    </div>
+    <h2>By {{search_project.owner}}</h2>
+    <h2>Contacts: {{search_project.Bmail}}</h2>
+    <h2>Location: {{search_project.neID}}</h2>
+
+
+
+    {% endfor %} {% endif %}
+
+</div>
+{% endblock %}
