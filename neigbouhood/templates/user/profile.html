@@ -1,0 +1,25 @@
+{%extends 'base.html'%} {%block content%}
+<div class="projects" style="height:100vh">
+
+    <div class="row text-center">
+        <div class="circular-landscape " style=" margin:10px;display:inline-block;position:relative; width:200px;height:200px;overflow:hidden;border-radius: 50%; ">
+            <img src="{{request.user.profile.profile_img.url}} " alt=" " style=" width:100%; height:100%; ">
+        </div>
+
+
+        <div class="row">
+            Username: {{request.user.username}}
+        </div>
+    </div>
+    <div class="row">
+        <h1>Location:{{location}}</h1>
+        <h1>Neigbouhood:{{neigbahood}}</h1>
+    </div>
+    <div class="row">
+
+        {%if request.user.id == profile.id%}
+        <h1> <a href="{%url 'profile' %}">Edit profile</a></h1>
+
+        {%endif%}
+    </div>
+    {%endblock%}
