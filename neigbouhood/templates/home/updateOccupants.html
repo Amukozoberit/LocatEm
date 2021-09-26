@@ -1,0 +1,29 @@
+{% load bootstrap4 %} {% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>update profile</title>
+    {{form.media}} {%block styles%}{%bootstrap_css%}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">>{%endblock%}
+</head>
+
+<body>
+    {%include 'navbar.html' %}
+    <div class="Logocontainer">
+        <form class="form-inline my-2 my-lg-0 " action="{%url 'updateoCC' id %}">
+            <input class="form-control mr-sm-2 " type="number" name="namel" placeholder={{name}} aria-label="Hood">
+            <button class="btn btn-outline-success my-2 my-sm-0 " type="submit " style="color:black;font-weight: bolder;font-family: Arial;">Update</button>
+        </form>
+
+        {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        {% bootstrap_javascript %} {% endblock %}
+    </div>
+    <div class="jumbotron"></div>
+</body>
+
+</html>
