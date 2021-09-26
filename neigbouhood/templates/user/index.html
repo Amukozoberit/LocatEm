@@ -1,0 +1,92 @@
+{%extends 'base.html'%}{%block content%}
+<style>
+    .navbar {
+        background-color: darkgoldenrod !important;
+    }
+</style>
+<div class="sec">
+
+    <div class="row" style="padding-top: 20px;">
+        <div class="col">
+            <h1 style="font-weight: bolder; color:black">
+                <span style="color:white">LocatEm</span> connects you to your Neigbouhood</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quia nulla, unde, perspiciatis eveniet laboriosam autem ipsa dicta cum, earum numquam error. Enim fuga sunt nobis quasi officiis tenetur! Repellendus.
+            </p>
+        </div>
+        <div class=" col " style="overflow: hidden; ">
+            <div class="circular-landscape " style="margin:10px;display:inline-block;position:relative; width:100%;overflow:hidden;border-radius: 50%; ">
+                <img src="/static/images/com.jpg" width="100% " alt=" ">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="custom-shape-divider-bottom-1632475717 ">
+        <svg data-name="Layer 1 " xmlns="http://www.w3.org/2000/svg " viewBox="0 0 1200 120 " preserveAspectRatio="none ">
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z " class="shape-fill "></path>
+        </svg>
+    </div>
+</div>
+<div class="cont text-center ">
+    <h2 style="font-weight: bolder; color:black">Search busineses in your area</h2>
+    <a href="{%url 'profile' %}">Change your neigbouhood</a>
+</div>
+<div class="categories ">
+    {% for category in categories%}
+    <button class="bt"><a href="{%url 'biz' category.id%}">{{category}}</a></button> {%empty%}
+    <h1>Sorry no categories</h1>
+    {%endfor%}
+</div>
+<h1 class="text-center" style="color: black;font-weight: bolder;">News in your area</h1>
+<div class="d-flex flex-row bd-highlight mb-3 flex-wrap:wrap" style="margin-top: 50px;">
+    {%for news in news%}
+    <div class="card " style="width:100%; margin-bottom: 10px; border-radius: 50px;">
+        <div class="card-body text-center ">
+            <h6 class="card-subtitle mb-2  ">
+                <h1>{{news.newsTitle}}</h1>
+            </h6>
+            <p class="card-text ">{{news.description}}</p>
+
+            <a href="{%url 'news'%}#{{news.id}}  " class=" card-link ">View more</a>
+        </div>
+    </div>
+    {%empty%}
+    <div class="card " style="width:100%; margin-bottom: 10px; border-radius: 50px; ">
+        <div class="card-body text-center ">
+            <h6 class="card-subtitle mb-2 text-muted ">NO NEWS</h6>
+
+
+
+        </div>
+    </div>
+    {%endfor%}
+</div>
+<div class="what text-center " style="margin-top: 50px; ">
+    <h1 style="color: black; font-weight: bolder; ">What LocatEm does</h1>
+    <div class="row mb-3 ">
+        <div class="col " style="align-items: center;justify-content: center;display: flex; font-weight: 900; ">Conects people</div>
+        <div class="col ">
+            <img src="/static/images/comunity.png " style="border-radius: 50%; background-color: transparent; width: 400px; " width="100% " alt=" ">
+
+        </div>
+
+    </div>
+    <div class="row mb-3 ">
+        <div class="col " style="align-items: center;justify-content: center;display: flex; font-weight: 900; ">Shows Projects</div>
+        <div class="col ">
+            <img src="/static/images/farm.jpeg " style="border-radius: 50%; background-color: transparent; " width="100% " alt=" ">
+
+        </div>
+
+    </div>
+    <div class="row mb-3 ">
+        <div class="col " style="align-items: center;justify-content: center;display: flex; font-weight: 900; ">Display News</div>
+        <div class="col ">
+            <img src="/static/images/news.jpeg " style="border-radius: 50%; background-color: transparent; " width="100% " alt=" ">
+
+        </div>
+
+    </div>
+</div>
+
+{%endblock%}
