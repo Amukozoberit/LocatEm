@@ -17,4 +17,5 @@ urlpatterns = [
     path('users',views.users,name='users'),
     path('updateHood/<str:id>',views.update_Neibas,name='updateHood'),
     path('updateoCC/<str:id>',views.update_Occupants,name='updateoCC'),
+    path('createnews/',views.create_news,name='createnews')
 ]

@@ -5,35 +5,52 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
 
+        <ul class="navbar-nav mr-auto">
+            <li class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  hood editing list
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                    <a class="nav-link " href="{%url 'createHood' %}" style="color:black;font-weight: bolder;font-family: Arial;">Create Hood</a>
+
+
+                    <a class="nav-link  " href="{%url 'neibaHood' %}" style="color:black;font-weight: bolder;font-family: Arial;">Neigbours</a>
+
+
+
+                    <a class="nav-link " href="{%url 'users' %}" style="color:black;font-weight: bolder;font-family: Arial;">NeiUsers</a>
+
+                    <a class="nav-link " href="{%url 'createPost' %}" style="color:black;font-weight: bolder;font-family: Arial;">Create Post</a>
+
+                    <a class="nav-link " href="{%url 'createnews' %}" style="color:black;font-weight: bolder;font-family: Arial;">Create news</a>
+
+                </div>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="#" style="color:black;font-weight: bolder;font-family: 'Open Sans', sans-serif;;">Businesses</a>
             </li>
 
-            <li class=" nav-item ">
-                <a class="nav-link  " href="{%url 'neibaHood' %}" style="color:black;font-weight: bolder;font-family: Arial;">Neigbours</a>
-            </li>
 
-            <li class=" nav-item ">
-                <a class="nav-link " href="{%url 'createPost' %}" style="color:black;font-weight: bolder;font-family: Arial;">Create Post</a>
-            </li>
-            <li class=" nav-item ">
-                <a class="nav-link " href="{%url 'createHood' %}" style="color:black;font-weight: bolder;font-family: Arial;">Create Hood</a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link " href="{%url 'users' %}" style="color:black;font-weight: bolder;font-family: Arial;">NeiUsers</a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link " href="{%url 'users' %}" style="color:black;font-weight: bolder;font-family: Arial;">Update count</a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link " href="{%url 'users' %}" style="color:black;font-weight: bolder;font-family: Arial;">update Hood</a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link " href="{%url 'prof' request.user.id%}" style="color:black;font-weight: bolder;font-family: Arial;">Profile</a>
-            </li>
+
+
+
+
+
         </ul>
+        <li class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              User
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="nav-link  " href="/logout" style="color:black;font-weight: bolder;font-family: Arial;">Logout</a>
+
+                <a class="nav-link " href="{%url 'prof' request.user.id%}" style="color:black;font-weight: bolder;font-family: Arial;">Profile</a>
+
+
+            </div>
+        </li>
         <form class="form-inline my-2 my-lg-0 " action="{%url 'search'  %}">
             <input class="form-control mr-sm-2 " type="search " name="business" placeholder="Search " aria-label="Search ">
             <button class="btn btn-outline-success my-2 my-sm-0 " type="submit " style="color:black;font-weight: bolder;font-family: Arial;">Search</button>

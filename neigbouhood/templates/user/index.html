@@ -1,9 +1,5 @@
 {%extends 'base.html'%}{%block content%}
-<style>
-    .navbar {
-        background-color: darkgoldenrod !important;
-    }
-</style>
+
 <div class="sec">
 
     <div class="row" style="padding-top: 20px;">
@@ -31,11 +27,20 @@
     <h2 style="font-weight: bolder; color:black">Search busineses in your area</h2>
     <a href="{%url 'profile' %}">Change your neigbouhood</a>
 </div>
-<div class="categories ">
-    {% for category in categories%}
-    <button class="bt"><a href="{%url 'biz' category.id%}">{{category}}</a></button> {%empty%}
-    <h1>Sorry no categories</h1>
-    {%endfor%}
+<div class="categories " style="width:100%">
+
+    <div class="dropdown">
+        <button style="width:100%" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            RESOURCES   AND BUSINESSES
+            </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width:100%">
+            {% for category in categories%}
+            <li class='text-center' style='color:goldenrod'> <a href="{%url 'biz' category.id%}">{{category}}</a></li>{%empty%}
+            <h1>Sorry no categories</h1>
+            {%endfor%}
+        </div>
+    </div>
+
 </div>
 <h1 class="text-center" style="color: black;font-weight: bolder;">News in your area</h1>
 <div class="d-flex flex-row bd-highlight mb-3 flex-wrap:wrap" style="margin-top: 50px;">

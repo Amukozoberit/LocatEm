@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
-from .forms import BusinessForm, NeigbahoodForm, ProfileForm, UserRegisterForm
+from .forms import BusinessForm, NeigbahoodForm, NewsForm, ProfileForm, UserRegisterForm
 from django.core.mail import send_mail
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
@@ -114,6 +114,27 @@ def create_post(request):
         else:
             form=BusinessForm()
     return render(request,'home/createform.html',{'form':form})
+def create_news(request):
+    form=NewsForm()
+    if not request.user.is_staff==1:
+        messages.error('No you are not an admin in this place')
+        return redirect('/')
+    else:
+        if request.POST:
+            form=NewsForm(request.POST,request.FILES)
+            user=User.objects.get(id=request.user.id)
+           
+           
+            post=form.save(commit=False)
+            post.writer=user
+            post.save()
+
+            # form.save(Bname=request.data.get('name'),neID=neiba,Bmail=request.data.get('Email'),category=cat,owner=user)
+            print('form')
+            return redirect('/')
+        else:
+            form=NewsForm()
+    return render(request,'home/createnewsform.html',{'form':form})
 
 def create_neiba(request):
     form=NeigbahoodForm()

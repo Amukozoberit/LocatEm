@@ -19,11 +19,12 @@ from django.contrib import admin
 from django.urls import include, path
 from neigbouhood import views 
 from django.conf.urls.static import static
-
+from django.contrib.auth import views as auth
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('acc/login/',views.Login,name='Login'),
     path('acc/register/',views.register, name='register'),
+    path('logout/', auth.LogoutView.as_view(template_name ='user/index.html'), name ='logout'),
     path('',include('neigbouhood.urls')),
     
 

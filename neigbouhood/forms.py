@@ -1,4 +1,4 @@
-from neigbouhood.models import BussinessClass, NeigbourHood, Profile
+from neigbouhood.models import BussinessClass, NeigbourHood, News, Profile
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -27,7 +27,10 @@ class BusinessForm(forms.ModelForm):
         model=BussinessClass
         fields=['Bname','neID','Bmail','category','Bimage']
 
-
+class NewsForm(forms.ModelForm):
+    class Meta:
+        model=News
+        fields=['newsTitle','newsImage','newsDescription','location','neiba']
 class NeigbahoodForm(forms.ModelForm):
     class Meta:
         model=NeigbourHood
