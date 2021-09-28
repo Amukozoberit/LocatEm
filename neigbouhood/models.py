@@ -33,7 +33,7 @@ class NeigbourHood(models.Model):
 
     @classmethod
     def find_nei(cls,search_term):
-        nei=cls.objects.filter(Bname__icontains=search_term)
+        nei=cls.objects.filter(name__icontains=search_term)
         return nei
     
 
@@ -49,14 +49,7 @@ class NeigbourHood(models.Model):
 class Category(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE ,limit_choices_to={'is_staff':True})
     name=models.CharField(max_length=55)
-# class NeiAdmin(models.Model):
-#     user=models.OneToOneField(User,on_delete=models.CASCADE)
-#     neiBarHood=models.OneToOneField(NeigbourHood,on_delete=models.CASCADE)
 
-#     @receiver(post_save,sender=NeigbourHood)
-#     def save_Admin(sender,instance,created,**kwargs):
-#         if created:
-#             NeiAdmin.objects.create(neiBarHood=instance)
     def __str__(self):
        return self.name 
 

@@ -23,8 +23,12 @@ h1 {
 }
 
 a {
-    color: black!important;
+    color: black;
     font-weight: bolder;
+}
+
+a:hover {
+    color: blue;
 }
 
 

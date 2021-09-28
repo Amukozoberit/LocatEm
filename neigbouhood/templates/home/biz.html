@@ -5,6 +5,7 @@
         <h1>{{biz.Bname}}</h1>
         <h3></h3>
 
+
     </div>
 
 
@@ -15,19 +16,11 @@
         <h6>Owned by:{{biz.owner}}</h6>
     </div>
     <div class="contacts" id={{biz.id}}>
-        <button id="{{biz.id}}" onclick=copy(id)>Copy</button>
-        <h6 style="font-weight: bold;" id="btn{{biz.id}}">Contact:{{biz.Bmail}}</h6>
+
+        <a class="nav-link " href="{%url 'deletebiz' biz.id%}" style="color:black;font-weight: bolder;font-family: Arial;">Delete biz</a>
+        <a class="nav-link " href="{%url 'updatebiz' biz.id%}" style="color:black;font-weight: bolder;font-family: Arial;">update business</a>
 
     </div>
 </div>{%empty%}
 <h1>No business currently</h1>
-{%endfor%}
-<script>
-    function copy(m) {
-        d = 'btn' + m
-        alert(d)
-        var copyText = document.getElementById(d).innerHTML
-        navigator.clipboard.writeText(copyText);
-        alert(copyText.slice(8))
-    }
-</script>{%endblock%}
+{%endfor%} {%endblock%}
