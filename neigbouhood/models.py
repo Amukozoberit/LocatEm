@@ -73,21 +73,27 @@ class BussinessClass(models.Model):
 
     def __str__(self):
        return self.name 
+    @classmethod
+    def create_business(CLS):
+        biz=cls.save()
+        return biz
 
-    def create_business():
-        pass
-
-
-    def delete_business():
-        pass
+    @classmethod
+    def delete_business(cls):
+         P=cls.objects.get(id=id)
+         return P.delete()
+        
 
     @classmethod
     def search_by_title(cls,search_term,id):
         biz=cls.objects.filter(Bname__icontains=search_term,neID=id)
         return biz
-
-    def update_business():
-        pass
+    @classmethod
+    def update_business(cls ,search_term):
+        return cls.objects.filter(id=id).update(caption=search_term)
+    
+    
+    
     def __str__(self):
        return self.Bname 
 
